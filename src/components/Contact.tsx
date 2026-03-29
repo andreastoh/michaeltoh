@@ -1,4 +1,4 @@
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Facebook, Instagram, Linkedin, Camera, Image } from 'lucide-react';
 
 export function Contact() {
   return (
@@ -26,12 +26,24 @@ export function Contact() {
             <div className="group">
               <p className="font-label uppercase tracking-[0.1em] text-[10px] text-outline-variant mb-4">Socials</p>
               <div className="flex flex-col gap-4">
-                <a href="#" className="font-headline text-2xl text-on-surface hover:text-primary transition-all duration-300 flex items-center gap-4 group/link">
-                  Instagram
+                <a href="https://www.facebook.com/MichaelTohPhotography/" target="_blank" rel="noreferrer" className="font-headline text-2xl text-on-surface hover:text-primary transition-all duration-300 flex items-center gap-4 group/link">
+                  <Facebook className="w-6 h-6" /> Facebook
                   <ArrowUpRight className="w-5 h-5 opacity-0 group-hover/link:opacity-100 transition-opacity" />
                 </a>
-                <a href="#" className="font-headline text-2xl text-on-surface hover:text-primary transition-all duration-300 flex items-center gap-4 group/link">
-                  LinkedIn
+                <a href="https://www.instagram.com/michael_jc_toh/" target="_blank" rel="noreferrer" className="font-headline text-2xl text-on-surface hover:text-primary transition-all duration-300 flex items-center gap-4 group/link">
+                  <Instagram className="w-6 h-6" /> Instagram
+                  <ArrowUpRight className="w-5 h-5 opacity-0 group-hover/link:opacity-100 transition-opacity" />
+                </a>
+                <a href="https://www.flickr.com/photos/mikejctoh/" target="_blank" rel="noreferrer" className="font-headline text-2xl text-on-surface hover:text-primary transition-all duration-300 flex items-center gap-4 group/link">
+                  <Camera className="w-6 h-6" /> Flickr
+                  <ArrowUpRight className="w-5 h-5 opacity-0 group-hover/link:opacity-100 transition-opacity" />
+                </a>
+                <a href="https://www.linkedin.com/in/michaeltoh/" target="_blank" rel="noreferrer" className="font-headline text-2xl text-on-surface hover:text-primary transition-all duration-300 flex items-center gap-4 group/link">
+                  <Linkedin className="w-6 h-6" /> LinkedIn
+                  <ArrowUpRight className="w-5 h-5 opacity-0 group-hover/link:opacity-100 transition-opacity" />
+                </a>
+                <a href="https://www.shutterstock.com/g/michaeltohphotography" target="_blank" rel="noreferrer" className="font-headline text-2xl text-on-surface hover:text-primary transition-all duration-300 flex items-center gap-4 group/link">
+                  <Image className="w-6 h-6" /> Shutterstock
                   <ArrowUpRight className="w-5 h-5 opacity-0 group-hover/link:opacity-100 transition-opacity" />
                 </a>
               </div>
