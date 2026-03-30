@@ -40,7 +40,7 @@ async function startServer() {
       }
     });
   } else {
-    const distPath = path.resolve(__dirname, 'dist');
+    const distPath = path.join(process.cwd(), 'dist');
     console.log(`[Prod] Serving static files from: ${distPath}`);
     
     // Serve static assets from dist
@@ -50,7 +50,13 @@ async function startServer() {
     app.get('*', (req, res) => {
       const url = req.originalUrl;
       console.log(`[Prod] Fallback to index.html for: ${url}`);
-      res.sendFile(path.join(distPath, 'index.html'));
+      const indexPath = path.join(distPath, 'index.html');
+      if (fs.existsSync(indexPath)) {
+        res.sendFile(indexPath);
+      } else {
+        console.error(`[Prod] CRITICAL: index.html not found at ${indexPath}`);
+        res.status(404).send('Application not built. Please run build first.');
+      }
     });
   }
 

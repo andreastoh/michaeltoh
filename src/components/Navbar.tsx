@@ -17,11 +17,11 @@ export function Navbar() {
       setActiveSection('calligraphy');
       return;
     }
-    if (location.pathname === '/events') {
+    if (location.pathname === '/events' || location.hash === '#/events') {
       setActiveSection('events');
       return;
     }
-    if (location.pathname === '/shop') {
+    if (location.pathname === '/shop' || location.hash === '#/shop') {
       setActiveSection('shop');
       return;
     }
@@ -127,8 +127,8 @@ export function Navbar() {
             </div>
           </div>
 
-          <Link to="/events" className={getLinkClass('events')}>Events</Link>
-          <Link to="/shop" className={getLinkClass('shop')}>Shop</Link>
+          <Link to="/#/events" className={getLinkClass('events')}>Events</Link>
+          <Link to="/#/shop" className={getLinkClass('shop')}>Shop</Link>
           <Link to="/contact" className={getLinkClass('contact')}>Contact</Link>
         </div>
 
@@ -196,8 +196,8 @@ export function Navbar() {
             </div>
           </div>
 
-          <Link to="/events" className={getLinkClass('events')} onClick={() => setIsMobileMenuOpen(false)}>Events</Link>
-          <Link to="/shop" className={getLinkClass('shop')} onClick={() => setIsMobileMenuOpen(false)}>Shop</Link>
+          <Link to="/#/events" className={getLinkClass('events')} onClick={() => setIsMobileMenuOpen(false)}>Events</Link>
+          <Link to="/#/shop" className={getLinkClass('shop')} onClick={() => setIsMobileMenuOpen(false)}>Shop</Link>
           <Link to="/contact" className={getLinkClass('contact')} onClick={() => setIsMobileMenuOpen(false)}>Contact</Link>
         </div>
       )}
