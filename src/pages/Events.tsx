@@ -62,7 +62,7 @@ export function Events() {
         {/* Featured Upcoming Event */}
         <div className="mb-32">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-            <div className="lg:col-span-5 relative overflow-hidden bg-surface-container-low group shadow-2xl">
+            <div className="lg:col-span-5 relative overflow-hidden bg-surface-container-low lg:bg-transparent group shadow-2xl lg:shadow-none">
               <img 
                 src={upcomingEvent.image} 
                 alt={upcomingEvent.title} 
