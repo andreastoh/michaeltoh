@@ -33,6 +33,8 @@ export function Volume() {
   // Reset index when navigating to a new volume
   useEffect(() => {
     setCurrentIndex(0);
+    // Extra safeguard to ensure we're at the top
+    window.scrollTo(0, 0);
   }, [id]);
 
   if (!volume || !volume.images || volume.images.length === 0) {

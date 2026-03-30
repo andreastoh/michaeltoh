@@ -14,9 +14,14 @@ function ScrollToTop() {
   const { pathname, hash } = useLocation();
 
   useEffect(() => {
-    // Only scroll to top if we're not navigating to a hash section or a hash-based page
-    if (!hash) {
-      window.scrollTo(0, 0);
+    // Scroll to top if:
+    // 1. No hash is present (standard page navigation)
+    // 2. Hash starts with #/ (our custom hash-based page routing)
+    if (!hash || hash.startsWith('#/')) {
+      // Use requestAnimationFrame to ensure the scroll happens after the DOM updates
+      requestAnimationFrame(() => {
+        window.scrollTo(0, 0);
+      });
     }
   }, [pathname, hash]);
 

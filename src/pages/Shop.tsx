@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
 import moonImg from '../shop/moon.jpg';
@@ -27,11 +28,15 @@ const products = [
     type: "Hanging Scroll",
     price: "$5000",
     image: calli2Img,
-    description: "This traditional Chinese hanging scroll features a five-character couplet rendered in expressive, semi-cursive calligraphy. The black ink stands out against a vibrant red background adorned with subtle gold dragon-patterned \"Xuan\" paper medallions.\nOn the right, the text “笔走龙蛇资雅韵” (Bǐ zǒu lóng shé zī yǎ yùn) poetically describes the calligrapher’s fluid, powerful brushstrokes as moving like \"dragons and snakes.\" On the left, “诗题福寿贺新春” (Shī tí fú shòu hè xīn chūn) expresses heartfelt wishes for longevity and happiness while welcoming the arrival of Spring. Together, the scroll serves as both a sophisticated piece of art and an auspicious charm for a prosperous New Year."
+    description: "This traditional Chinese hanging scroll features a five-character couplet rendered in expressive, semi-cursive calligraphy. The black ink stands out against a vibrant red background adorned with subtle gold dragon-patterned \"Xuan\" paper medallions.\nOn the right, the text “笔走龙蛇资雅韵” (Bǐ zǒu lóng shé zī yǎ yùn) poetically describes the calligrapher’s fluid, powerful brushstrokes as moving like \"dragons and snakes.\" On the left, “诗题福寿贺新春” (Sī tí fú shòu hè xīn chūn) expresses heartfelt wishes for longevity and happiness while welcoming the arrival of Spring. Together, the scroll serves as both a sophisticated piece of art and an auspicious charm for a prosperous New Year."
   }
 ];
 
 export function Shop() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="min-h-screen bg-background text-on-surface flex flex-col">
       <Navbar />
