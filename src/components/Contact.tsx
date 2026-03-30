@@ -58,13 +58,24 @@ export function Contact() {
 
         {/* Right Column: Minimalist Form */}
         <div className="lg:col-span-7 bg-surface-container-low p-8 md:p-16 relative">
-          <form className="space-y-12" onSubmit={(e) => e.preventDefault()}>
+          <form 
+            action="https://formsubmit.co/mikejctoh@gmail.com" 
+            method="POST" 
+            className="space-y-12"
+          >
+            {/* FormSubmit Configuration */}
+            <input type="hidden" name="_subject" value="New Inquiry from Michael Toh Photography" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_captcha" value="false" />
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
               <div className="relative group">
                 <label className="block font-label text-[10px] uppercase tracking-[0.2em] text-on-surface-variant mb-2 group-focus-within:text-primary transition-colors">Your Name</label>
                 <input 
                   type="text" 
+                  name="name"
                   placeholder="John Doe" 
+                  required
                   className="w-full bg-transparent border-0 border-b border-outline-variant/30 py-3 focus:ring-0 focus:border-primary text-on-surface placeholder:text-surface-container-highest transition-all font-body outline-none"
                 />
               </div>
@@ -72,7 +83,9 @@ export function Contact() {
                 <label className="block font-label text-[10px] uppercase tracking-[0.2em] text-on-surface-variant mb-2 group-focus-within:text-primary transition-colors">Email Address</label>
                 <input 
                   type="email" 
+                  name="email"
                   placeholder="john@example.com" 
+                  required
                   className="w-full bg-transparent border-0 border-b border-outline-variant/30 py-3 focus:ring-0 focus:border-primary text-on-surface placeholder:text-surface-container-highest transition-all font-body outline-none"
                 />
               </div>
@@ -80,7 +93,10 @@ export function Contact() {
 
             <div className="relative group">
               <label className="block font-label text-[10px] uppercase tracking-[0.2em] text-on-surface-variant mb-2 group-focus-within:text-primary transition-colors">Subject</label>
-              <select className="w-full bg-transparent border-0 border-b border-outline-variant/30 py-3 focus:ring-0 focus:border-primary text-on-surface transition-all font-body outline-none appearance-none">
+              <select 
+                name="subject"
+                className="w-full bg-transparent border-0 border-b border-outline-variant/30 py-3 focus:ring-0 focus:border-primary text-on-surface transition-all font-body outline-none appearance-none"
+              >
                 <option className="bg-surface text-on-surface">General Inquiry</option>
                 <option className="bg-surface text-on-surface">Commercial Booking</option>
                 <option className="bg-surface text-on-surface">Print Acquisition</option>
@@ -91,8 +107,10 @@ export function Contact() {
             <div className="relative group">
               <label className="block font-label text-[10px] uppercase tracking-[0.2em] text-on-surface-variant mb-2 group-focus-within:text-primary transition-colors">Message</label>
               <textarea 
+                name="message"
                 rows={4} 
                 placeholder="Tell me about your project..." 
+                required
                 className="w-full bg-transparent border-0 border-b border-outline-variant/30 py-3 focus:ring-0 focus:border-primary text-on-surface placeholder:text-surface-container-highest transition-all font-body resize-none outline-none"
               ></textarea>
             </div>
