@@ -14,7 +14,10 @@ function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    const homeSections = ['/about', '/photography', '/calligraphy', '/contact'];
+    if (!homeSections.includes(pathname)) {
+      window.scrollTo(0, 0);
+    }
   }, [pathname]);
 
   return null;
@@ -26,6 +29,10 @@ export default function App() {
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/about" element={<Home />} />
+        <Route path="/photography" element={<Home />} />
+        <Route path="/calligraphy" element={<Home />} />
+        <Route path="/contact" element={<Home />} />
         <Route path="/volume/:id" element={<Volume />} />
         <Route path="/calligraphy/:id" element={<Volume />} />
         <Route path="/events" element={<Events />} />

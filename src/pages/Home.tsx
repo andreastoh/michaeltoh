@@ -11,8 +11,11 @@ export function Home() {
   const location = useLocation();
 
   useEffect(() => {
-    if (location.hash) {
-      const element = document.getElementById(location.hash.substring(1));
+    const path = location.pathname;
+    const sectionId = path === '/' ? (location.hash ? location.hash.substring(1) : null) : path.substring(1);
+
+    if (sectionId) {
+      const element = document.getElementById(sectionId);
       if (element) {
         // Add a small delay to ensure rendering is complete before scrolling
         setTimeout(() => {
