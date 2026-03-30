@@ -27,6 +27,7 @@ function AppContent() {
   const location = useLocation();
   
   // Handle hash-based routing for Shop and Events only
+  // This prevents 404s on refresh for these standalone pages
   if (location.hash === '#/shop') {
     return <Shop />;
   }
@@ -37,13 +38,9 @@ function AppContent() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/about" element={<Home />} />
-      <Route path="/photography" element={<Home />} />
-      <Route path="/calligraphy" element={<Home />} />
-      <Route path="/contact" element={<Home />} />
       <Route path="/volume/:id" element={<Volume />} />
       <Route path="/calligraphy/:id" element={<Volume />} />
-      {/* Fallback for clean URLs if they are still accessed directly */}
+      {/* Keep these as fallbacks but prioritize hash-based navigation in UI */}
       <Route path="/events" element={<Events />} />
       <Route path="/shop" element={<Shop />} />
     </Routes>

@@ -11,18 +11,19 @@ export function Home() {
   const location = useLocation();
 
   useEffect(() => {
-    const path = location.pathname;
-    const sectionId = path === '/' ? (location.hash ? location.hash.substring(1) : null) : path.substring(1);
-
-    if (sectionId) {
-      const element = document.getElementById(sectionId);
-      if (element) {
-        // Add a small delay to ensure rendering is complete before scrolling
-        setTimeout(() => {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }, 100);
+    if (location.hash && location.hash !== '#/shop' && location.hash !== '#/events') {
+      const sectionId = location.hash.startsWith('#/') ? null : location.hash.substring(1);
+      
+      if (sectionId) {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          // Add a small delay to ensure rendering is complete before scrolling
+          setTimeout(() => {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }, 100);
+        }
       }
-    } else {
+    } else if (!location.hash) {
       window.scrollTo(0, 0);
     }
   }, [location]);

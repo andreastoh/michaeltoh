@@ -23,10 +23,10 @@ export function Hero() {
         </h1>
         
         <div className="flex flex-col md:flex-row items-center justify-center gap-6 mt-12">
-          <Link to="/photography" className="bg-primary-container text-on-primary-container px-10 py-4 font-label uppercase tracking-widest text-xs font-bold hover:bg-primary transition-colors duration-300 rounded-none">
+          <Link to="/#photography" className="bg-primary-container text-on-primary-container px-10 py-4 font-label uppercase tracking-widest text-xs font-bold hover:bg-primary transition-colors duration-300 rounded-none">
             Photography
           </Link>
-          <Link to="/calligraphy" className="ghost-border text-on-surface px-10 py-4 font-label uppercase tracking-widest text-xs hover:bg-surface-container-low transition-colors duration-300 rounded-none">
+          <Link to="/#calligraphy" className="ghost-border text-on-surface px-10 py-4 font-label uppercase tracking-widest text-xs hover:bg-surface-container-low transition-colors duration-300 rounded-none">
             Calligraphy
           </Link>
         </div>
