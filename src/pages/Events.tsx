@@ -61,17 +61,17 @@ export function Events() {
 
         {/* Featured Upcoming Event */}
         <div className="mb-32">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-7 relative overflow-hidden bg-surface-container-low group">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+            <div className="lg:col-span-5 relative overflow-hidden bg-surface-container-low group shadow-2xl">
               <img 
                 src={upcomingEvent.image} 
                 alt={upcomingEvent.title} 
-                className="w-full h-auto object-contain transition-transform duration-1000 group-hover:scale-105"
+                className="w-full h-auto max-h-[70vh] object-contain transition-transform duration-1000 group-hover:scale-105"
                 referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
-            <div className="lg:col-span-5 flex flex-col justify-center">
+            <div className="lg:col-span-7 flex flex-col justify-center">
               <span className="font-label text-primary uppercase tracking-[0.2em] mb-4 block text-xs">Featured Event</span>
               <h2 className="font-headline text-4xl md:text-5xl text-on-surface mb-6 leading-tight">{upcomingEvent.title}</h2>
               <div className="mb-8 space-y-2">
