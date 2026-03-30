@@ -7,9 +7,22 @@ import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
 
 export function Volume() {
-  const { id } = useParams<{ id: string }>();
+  const { id: paramId } = useParams<{ id: string }>();
   const location = useLocation();
-  const isCalligraphy = location.pathname.includes('/calligraphy/');
+  
+  // Extract ID and type from hash if not in standard params
+  let id = paramId;
+  let isCalligraphy = location.pathname.includes('/calligraphy/');
+  
+  if (!id) {
+    if (location.hash.startsWith('#/volume/')) {
+      id = location.hash.replace('#/volume/', '');
+      isCalligraphy = false;
+    } else if (location.hash.startsWith('#/calligraphy/')) {
+      id = location.hash.replace('#/calligraphy/', '');
+      isCalligraphy = true;
+    }
+  }
   
   const volume = isCalligraphy 
     ? calligraphyWorks.find(v => v.id === id)

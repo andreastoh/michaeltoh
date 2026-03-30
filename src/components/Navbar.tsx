@@ -9,11 +9,11 @@ export function Navbar() {
   const location = useLocation();
 
   useEffect(() => {
-    if (location.pathname.startsWith('/volume')) {
+    if (location.pathname.startsWith('/volume') || location.hash.startsWith('#/volume/')) {
       setActiveSection('photography');
       return;
     }
-    if (location.pathname.startsWith('/calligraphy')) {
+    if (location.pathname.startsWith('/calligraphy') || location.hash.startsWith('#/calligraphy/')) {
       setActiveSection('calligraphy');
       return;
     }
@@ -77,11 +77,11 @@ export function Navbar() {
             <div className="absolute top-full left-0 pt-4 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
               <div className="bg-surface-container-low/95 backdrop-blur-xl border border-outline-variant/20 flex flex-col py-2 shadow-2xl">
                 {volumes.map(v => {
-                  const isActive = location.pathname === `/volume/${v.id}`;
+                  const isActive = location.pathname === `/volume/${v.id}` || location.hash === `#/volume/${v.id}`;
                   return (
                     <Link 
                       key={v.id} 
-                      to={`/volume/${v.id}`} 
+                      to={`/#/volume/${v.id}`} 
                       className={`px-6 py-3 font-label text-xs tracking-widest uppercase transition-colors ${
                         isActive 
                           ? 'text-primary bg-surface-container' 
@@ -108,11 +108,11 @@ export function Navbar() {
             <div className="absolute top-full left-0 pt-4 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
               <div className="bg-surface-container-low/95 backdrop-blur-xl border border-outline-variant/20 flex flex-col py-2 shadow-2xl">
                 {calligraphyWorks.map(v => {
-                  const isActive = location.pathname === `/calligraphy/${v.id}`;
+                  const isActive = location.pathname === `/calligraphy/${v.id}` || location.hash === `#/calligraphy/${v.id}`;
                   return (
                     <Link 
                       key={v.id} 
-                      to={`/calligraphy/${v.id}`} 
+                      to={`/#/calligraphy/${v.id}`} 
                       className={`px-6 py-3 font-label text-xs tracking-widest uppercase transition-colors ${
                         isActive 
                           ? 'text-primary bg-surface-container' 
@@ -152,11 +152,11 @@ export function Navbar() {
             </Link>
             <div className="flex flex-col gap-3 pl-4 border-l border-outline-variant/20 ml-2">
               {volumes.map(v => {
-                const isActive = location.pathname === `/volume/${v.id}`;
+                const isActive = location.pathname === `/volume/${v.id}` || location.hash === `#/volume/${v.id}`;
                 return (
                   <Link 
                     key={v.id} 
-                    to={`/volume/${v.id}`} 
+                    to={`/#/volume/${v.id}`} 
                     className={`font-label text-xs tracking-widest uppercase transition-colors ${
                       isActive 
                         ? 'text-primary' 
@@ -177,11 +177,11 @@ export function Navbar() {
             </Link>
             <div className="flex flex-col gap-3 pl-4 border-l border-outline-variant/20 ml-2">
               {calligraphyWorks.map(v => {
-                const isActive = location.pathname === `/calligraphy/${v.id}`;
+                const isActive = location.pathname === `/calligraphy/${v.id}` || location.hash === `#/calligraphy/${v.id}`;
                 return (
                   <Link 
                     key={v.id} 
-                    to={`/calligraphy/${v.id}`} 
+                    to={`/#/calligraphy/${v.id}`} 
                     className={`font-label text-xs tracking-widest uppercase transition-colors ${
                       isActive 
                         ? 'text-primary' 

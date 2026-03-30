@@ -35,6 +35,11 @@ function AppContent() {
     return <Events />;
   }
 
+  // Handle volume/calligraphy hash routes
+  if (location.hash.startsWith('#/volume/') || location.hash.startsWith('#/calligraphy/')) {
+    return <Volume />;
+  }
+
   return (
     <Routes>
       <Route path="/" element={<Home />} />

@@ -25,7 +25,7 @@ export function Gallery() {
           aspectClass = "aspect-auto";
         }
 
-        const linkPath = type === 'photography' ? `/volume/${item.id}` : `/calligraphy/${item.id}`;
+        const linkPath = type === 'photography' ? `/#/volume/${item.id}` : `/#/calligraphy/${item.id}`;
         const itemLabel = type === 'photography' ? 'Photographs' : 'Works';
         
         let imageFitClass = 'object-contain w-full h-auto';
