@@ -3,32 +3,42 @@ import { volumes, calligraphyWorks } from '../data/portfolio';
 
 export function Gallery() {
   const renderGrid = (items: any[], type: 'photography' | 'calligraphy') => (
-    <div className="grid grid-cols-1 md:grid-cols-12 gap-y-32 gap-x-8 lg:gap-x-16">
+    <div className="grid grid-cols-1 md:grid-cols-12 gap-y-24 gap-x-8 lg:gap-x-16">
       {items.map((item, index) => {
         let colClasses = "";
         let aspectClass = "";
+        let containerMaxHeight = "";
         
-        if (index === 0) {
-          colClasses = "md:col-start-1 md:col-span-6";
-          aspectClass = "aspect-auto";
-        } else if (index === 1) {
-          colClasses = "md:col-start-7 md:col-span-6 md:mt-24 lg:mt-40";
-          aspectClass = "aspect-auto";
-        } else if (index === 2) {
-          colClasses = "md:col-start-2 md:col-span-5";
-          aspectClass = "aspect-auto";
-        } else if (index === 3) {
-          colClasses = "md:col-start-7 md:col-span-6 md:mt-24 lg:mt-40";
-          aspectClass = "aspect-auto";
+        if (type === 'photography') {
+          if (index === 0) {
+            colClasses = "md:col-start-1 md:col-span-6";
+          } else if (index === 1) {
+            colClasses = "md:col-start-7 md:col-span-6 md:mt-16";
+          } else if (index === 2) {
+            // Volume 3: The Human Condition
+            colClasses = "md:col-start-1 md:col-span-6";
+            containerMaxHeight = "max-h-[80vh]";
+          } else if (index === 3) {
+            colClasses = "md:col-start-7 md:col-span-6 md:mt-16";
+          } else {
+            colClasses = "md:col-start-2 md:col-span-8";
+          }
         } else {
-          colClasses = "md:col-start-3 md:col-span-8";
-          aspectClass = "aspect-auto";
+          // Calligraphy Section
+          if (index === 0) {
+            colClasses = "md:col-start-1 md:col-span-6";
+            containerMaxHeight = "max-h-[80vh]";
+          } else if (index === 1) {
+            colClasses = "md:col-start-7 md:col-span-6 md:mt-16";
+            containerMaxHeight = "max-h-[80vh]";
+          } else {
+            colClasses = "md:col-start-3 md:col-span-8";
+          }
         }
 
         const linkPath = type === 'photography' ? `/#/volume/${item.id}` : `/#/calligraphy/${item.id}`;
-        const itemLabel = type === 'photography' ? 'Photographs' : 'Works';
         
-        let imageFitClass = 'object-contain w-full h-auto';
+        let imageFitClass = 'object-contain w-full h-full';
         let transformClass = 'transition-transform duration-1000 group-hover:scale-105';
         
         const bgClass = 'bg-transparent';
@@ -39,7 +49,7 @@ export function Gallery() {
             to={linkPath}
             className={`${colClasses} group cursor-pointer block`}
           >
-            <div className={`relative ${aspectClass} overflow-hidden ${bgClass} mb-8 flex items-center justify-center`}>
+            <div className={`relative ${aspectClass} ${containerMaxHeight} overflow-hidden ${bgClass} mb-8 flex items-center justify-center`}>
               <img 
                 src={item.coverImage} 
                 alt={item.title} 
