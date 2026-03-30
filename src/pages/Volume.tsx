@@ -48,13 +48,13 @@ export function Volume() {
       <Navbar />
       
       <main className="flex-grow pt-32 pb-16 px-8 max-w-[1920px] mx-auto w-full flex flex-col">
-        <a 
-          href={`#${isCalligraphy ? 'calligraphy' : 'photography'}`} 
+        <Link 
+          to={`/#${isCalligraphy ? 'calligraphy' : 'photography'}`} 
           className="inline-flex items-center gap-2 font-label text-xs tracking-widest uppercase text-outline hover:text-primary transition-colors mb-12 w-fit"
         >
           <ArrowLeft size={16} />
           Back to {isCalligraphy ? 'Calligraphy' : 'Photography'}
-        </a>
+        </Link>
 
         <header className="mb-16 max-w-3xl">
           <span className="font-label text-primary uppercase tracking-[0.2em] mb-4 block text-xs">{volume.volumeNumber}</span>

@@ -63,15 +63,15 @@ export function Navbar() {
         
         {/* Desktop Nav */}
         <div className="hidden md:flex gap-10 items-center">
-          <a href="#about" className={getLinkClass('about')}>About</a>
+          <Link to="/#about" className={getLinkClass('about')}>About</Link>
           
           {/* Photography Dropdown */}
           <div className="relative group py-2">
-            <a href="#photography" className={getLinkClass('photography')}>
+            <Link to="/#photography" className={getLinkClass('photography')}>
               <span className="flex items-center gap-1">
                 Photography <ChevronDown size={14} className="transition-transform group-hover:rotate-180" />
               </span>
-            </a>
+            </Link>
             
             {/* Dropdown Menu */}
             <div className="absolute top-full left-0 pt-4 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
@@ -98,11 +98,11 @@ export function Navbar() {
 
           {/* Calligraphy Dropdown */}
           <div className="relative group py-2">
-            <a href="#calligraphy" className={getLinkClass('calligraphy')}>
+            <Link to="/#calligraphy" className={getLinkClass('calligraphy')}>
               <span className="flex items-center gap-1">
                 Calligraphy <ChevronDown size={14} className="transition-transform group-hover:rotate-180" />
               </span>
-            </a>
+            </Link>
             
             {/* Dropdown Menu */}
             <div className="absolute top-full left-0 pt-4 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
@@ -129,7 +129,7 @@ export function Navbar() {
 
           <Link to="/events" className={getLinkClass('events')}>Events</Link>
           <Link to="/shop" className={getLinkClass('shop')}>Shop</Link>
-          <a href="#contact" className={getLinkClass('contact')}>Contact</a>
+          <Link to="/#contact" className={getLinkClass('contact')}>Contact</Link>
         </div>
 
         {/* Mobile Toggle */}
@@ -144,12 +144,12 @@ export function Navbar() {
       {/* Mobile Nav */}
       {isMobileMenuOpen && (
         <div className="md:hidden absolute top-full left-0 w-full bg-background/95 backdrop-blur-xl border-b border-outline-variant/10 flex flex-col py-6 px-8 gap-6 shadow-2xl h-[80vh] overflow-y-auto">
-          <a href="#about" className={getLinkClass('about')} onClick={() => setIsMobileMenuOpen(false)}>About</a>
+          <Link to="/#about" className={getLinkClass('about')} onClick={() => setIsMobileMenuOpen(false)}>About</Link>
           
           <div className="flex flex-col gap-4">
-            <a href="#photography" className={getLinkClass('photography')} onClick={() => setIsMobileMenuOpen(false)}>
+            <Link to="/#photography" className={getLinkClass('photography')} onClick={() => setIsMobileMenuOpen(false)}>
               Photography
-            </a>
+            </Link>
             <div className="flex flex-col gap-3 pl-4 border-l border-outline-variant/20 ml-2">
               {volumes.map(v => {
                 const isActive = location.pathname === `/volume/${v.id}`;
@@ -172,9 +172,9 @@ export function Navbar() {
           </div>
 
           <div className="flex flex-col gap-4">
-            <a href="#calligraphy" className={getLinkClass('calligraphy')} onClick={() => setIsMobileMenuOpen(false)}>
+            <Link to="/#calligraphy" className={getLinkClass('calligraphy')} onClick={() => setIsMobileMenuOpen(false)}>
               Calligraphy
-            </a>
+            </Link>
             <div className="flex flex-col gap-3 pl-4 border-l border-outline-variant/20 ml-2">
               {calligraphyWorks.map(v => {
                 const isActive = location.pathname === `/calligraphy/${v.id}`;
@@ -198,7 +198,7 @@ export function Navbar() {
 
           <Link to="/events" className={getLinkClass('events')} onClick={() => setIsMobileMenuOpen(false)}>Events</Link>
           <Link to="/shop" className={getLinkClass('shop')} onClick={() => setIsMobileMenuOpen(false)}>Shop</Link>
-          <a href="#contact" className={getLinkClass('contact')} onClick={() => setIsMobileMenuOpen(false)}>Contact</a>
+          <Link to="/#contact" className={getLinkClass('contact')} onClick={() => setIsMobileMenuOpen(false)}>Contact</Link>
         </div>
       )}
     </nav>
