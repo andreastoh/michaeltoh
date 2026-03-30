@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import mikeImg from '../img/mike.png';
 
