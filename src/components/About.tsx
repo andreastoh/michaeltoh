@@ -61,6 +61,41 @@ export function About() {
       }
 
       scroller.style.transform = `translateX(${position.current}px)`;
+
+      // Colorize logos in the center
+      const centerX = window.innerWidth / 2;
+      const threshold = window.innerWidth * 0.4; // Wider threshold for smoother fade
+
+      const logoGroups = scroller.children;
+      for (let i = 0; i < logoGroups.length; i++) {
+        const group = logoGroups[i] as HTMLElement;
+        const logos = group.children;
+        for (let j = 0; j < logos.length; j++) {
+          const logo = logos[j] as HTMLElement;
+          const rect = logo.getBoundingClientRect();
+          const logoCenter = rect.left + rect.width / 2;
+          const distance = Math.abs(centerX - logoCenter);
+
+          if (distance < threshold) {
+            // Use a smoother curve (squared cosine) for a very gradual "fade in/out"
+            const normalizedDistance = distance / threshold;
+            const intensity = Math.pow(Math.cos(normalizedDistance * (Math.PI / 2)), 2);
+            
+            // Apply grayscale and opacity
+            const grayscale = 100 - (intensity * 100);
+            const opacity = 0.4 + (intensity * 0.6);
+            
+            logo.style.filter = `grayscale(${grayscale}%)`;
+            logo.style.opacity = `${opacity}`;
+            logo.style.transform = `scale(${1 + (intensity * 0.1)})`;
+          } else {
+            logo.style.filter = 'grayscale(100%)';
+            logo.style.opacity = '0.4';
+            logo.style.transform = 'scale(1)';
+          }
+        }
+      }
+
       animationId = requestAnimationFrame(animate);
     };
 
@@ -188,7 +223,7 @@ export function About() {
                     src={client.src}
                     alt={client.name}
                     draggable={false}
-                    className="mx-12 md:mx-16 h-14 md:h-20 w-auto shrink-0 object-contain opacity-40 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0 select-none"
+                    className="mx-12 md:mx-16 h-14 md:h-20 w-auto shrink-0 object-contain transition-all duration-300 select-none"
                   />
                 ))}
               </div>
@@ -199,7 +234,7 @@ export function About() {
                     src={client.src}
                     alt={client.name}
                     draggable={false}
-                    className="mx-12 md:mx-16 h-14 md:h-20 w-auto shrink-0 object-contain opacity-40 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0 select-none"
+                    className="mx-12 md:mx-16 h-14 md:h-20 w-auto shrink-0 object-contain transition-all duration-300 select-none"
                   />
                 ))}
               </div>

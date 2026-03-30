@@ -39,9 +39,9 @@ export function Shop() {
       <main className="flex-grow pt-32 pb-16 px-8 max-w-[1920px] mx-auto w-full">
         <header className="mb-24 max-w-3xl">
           <span className="font-label text-primary uppercase tracking-[0.2em] mb-4 block text-xs">Acquire</span>
-          <h1 className="font-headline text-5xl md:text-7xl text-primary leading-tight mb-6">Print <br/><span className="italic font-normal">Editions.</span></h1>
+          <h1 className="font-headline text-5xl md:text-7xl text-primary leading-tight mb-6">Prints & <br/><span className="italic font-normal">Calligraphy.</span></h1>
           <p className="font-body text-lg text-on-surface-variant/80 leading-relaxed">
-            Selected works available as limited edition archival pigment prints and monographs. Each piece is signed and numbered.
+            Selected works available as limited edition archival pigment prints and monographs.<br/>Contact Michael for more details.
           </p>
         </header>
 
@@ -55,11 +55,6 @@ export function Shop() {
                   className="w-full h-full object-contain transition-transform duration-1000 group-hover:scale-105"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-background/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                  <span className="bg-primary-container text-on-primary-container px-6 py-3 font-label uppercase text-xs tracking-widest font-bold">
-                    View Details
-                  </span>
-                </div>
               </div>
               <div>
                 <div className="flex justify-between items-start mb-2">
