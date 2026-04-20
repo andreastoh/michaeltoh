@@ -150,7 +150,7 @@ export function About() {
             The duality of <br/><span className="italic font-normal">light and ink.</span>
           </h2>
           <p className="font-body text-lg text-on-surface-variant max-w-lg leading-relaxed mb-12">
-            Michael Toh is a Singapore-based artist whose practice bridges two distinct yet harmonious disciplines: the precise geometry of architectural photography and the fluid, expressive strokes of traditional Chinese calligraphy.
+            Michael Toh is a Singapore-based artist whose practice bridges two distinct yet harmonious disciplines: the precise setting of light exposure and composition in photography and the fluid, expressive strokes of traditional Chinese calligraphy.
           </p>
           <div className="flex items-center gap-6">
             <a href="#contact" className="bg-primary-container text-on-primary-container px-8 py-4 rounded-none font-label uppercase text-xs tracking-widest font-bold hover:bg-primary transition-all active:scale-95">
@@ -188,10 +188,10 @@ export function About() {
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12 font-body text-on-surface-variant leading-relaxed">
                 <p>
-                  My journey began in the darkrooms of Singapore, learning the patience of the chemical process. This discipline naturally evolved into a deep appreciation for Chinese calligraphy—a practice where patience, breath, and the decisive moment of the brush stroke mirror the capturing of light on film.
+                  My journey began with film, where I learned to see with intention—embracing the discipline of waiting, observing, and choosing the right moment before pressing the shutter. The process instilled a lasting sensitivity to light, timing, and restraint. This sensibility naturally extended into my practice of Chinese calligraphy, where patience, breath, and the decisiveness of each stroke echo the act of capturing an image. Both mediums demand presence and clarity—there is no excess, only what is essential.
                 </p>
                 <p>
-                  Today, I curate visual experiences that value depth over volume. My photography acts as an architectural annotation of the modern world, while my calligraphy explores the ancient rhythms of nature and mind. Together, they form a complete dialogue between the external environment and internal reflection.
+                  Today, I create visual work that values depth over volume. My photography moves between travel, nature, and the built environment, observing how spaces and landscapes shape human experience. Alongside this, my calligraphy explores the quiet rhythms of nature and the inner mind. Together, they form an ongoing dialogue between what is seen and what is felt.
                 </p>
               </div>
             </div>

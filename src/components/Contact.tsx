@@ -18,7 +18,7 @@ export function Contact() {
               Let's start a <br/><span className="italic text-primary">dialogue.</span>
             </h2>
             <p className="font-body text-lg text-on-surface-variant max-w-md leading-relaxed">
-              Whether you're interested in a collaboration, a private commission, or simply want to share your thoughts on the collection, I'd love to hear from you.
+              If my work resonates with you, I'd love to hear from you.
             </p>
           </div>
 
@@ -98,7 +98,6 @@ export function Contact() {
                 className="w-full bg-transparent border-0 border-b border-outline-variant/30 py-3 focus:ring-0 focus:border-primary text-on-surface transition-all font-body outline-none appearance-none"
               >
                 <option className="bg-surface text-on-surface">General Inquiry</option>
-                <option className="bg-surface text-on-surface">Commercial Booking</option>
                 <option className="bg-surface text-on-surface">Print Acquisition</option>
                 <option className="bg-surface text-on-surface">Collaborations</option>
               </select>
