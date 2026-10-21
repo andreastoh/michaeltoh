@@ -1,69 +1,69 @@
-import scrollwallImg from '../img/series1/scrollwall.png';
-import birdImg from '../img/series2/bird.png';
-import poemImg from '../img/series1/poem.png';
-import inkImg from '../img/series1/ink.png';
-import circleImg from '../img/series1/circle.png';
-import craneImg from '../img/series2/crane.png';
-import ladyImg from '../img/series2/lady.png';
-import camelImg from '../img/vol1/camel.png';
-import cheetahImg from '../img/vol2/cheetah.png';
-import leaderImg from '../img/vol3/leader.png';
-import orchestraImg from '../img/vol4/orchestra.png';
-import f1Img from '../img/vol5/f1.png';
-import airshowImg from '../img/vol5/airshow.jpg';
-import frisbeeImg from '../img/vol5/frisbee.jpg';
-import sprintImg from '../img/vol5/sprint.jpg';
+import scrollwallImg from '../img/series1/scrollwall.webp';
+import birdImg from '../img/series2/bird.webp';
+import poemImg from '../img/series1/poem.webp';
+import inkImg from '../img/series1/ink.webp';
+import circleImg from '../img/series1/circle.webp';
+import craneImg from '../img/series2/crane.webp';
+import ladyImg from '../img/series2/lady.webp';
+import camelImg from '../img/vol1/camel.webp';
+import cheetahImg from '../img/vol2/cheetah.webp';
+import leaderImg from '../img/vol3/leader.webp';
+import orchestraImg from '../img/vol4/orchestra.webp';
+import f1Img from '../img/vol5/f1.webp';
+import airshowImg from '../img/vol5/airshow.webp';
+import frisbeeImg from '../img/vol5/frisbee.webp';
+import sprintImg from '../img/vol5/sprint.webp';
 
 // Vol 1
-import boatImg from '../img/vol1/boat.jpg';
-import bromoImg from '../img/vol1/bromo.jpg';
-import farmImg from '../img/vol1/farm.jpg';
-import goldengateImg from '../img/vol1/goldengate.jpg';
-import hkImg from '../img/vol1/hk.jpg';
-import japanImg from '../img/vol1/japan.jpg';
-import milkyImg from '../img/vol1/milky.jpg';
-import palmImg from '../img/vol1/palm.jpg';
-import seattleImg from '../img/vol1/seattle.jpg';
-import templeImg from '../img/vol1/temple.jpg';
+import boatImg from '../img/vol1/boat.webp';
+import bromoImg from '../img/vol1/bromo.webp';
+import farmImg from '../img/vol1/farm.webp';
+import goldengateImg from '../img/vol1/goldengate.webp';
+import hkImg from '../img/vol1/hk.webp';
+import japanImg from '../img/vol1/japan.webp';
+import milkyImg from '../img/vol1/milky.webp';
+import palmImg from '../img/vol1/palm.webp';
+import seattleImg from '../img/vol1/seattle.webp';
+import templeImg from '../img/vol1/temple.webp';
 
 // Vol 2
-import craneVol2Img from '../img/vol2/crane.jpg';
-import flycatcherImg from '../img/vol2/flycatcher.jpg';
-import hopperImg from '../img/vol2/hopper.jpg';
-import leopardImg from '../img/series2/leopard.jpg';
-import otterImg from '../img/vol2/otter.jpg';
-import rampageImg from '../img/vol2/rampage.jpg';
-import spiderImg from '../img/vol2/spider.jpg';
-import topiImg from '../img/vol2/topi.jpg';
-import vultureImg from '../img/vol2/vulture.jpg';
-import cheetah2Img from '../img/vol2/cheetah2.jpg';
+import craneVol2Img from '../img/vol2/crane.webp';
+import flycatcherImg from '../img/vol2/flycatcher.webp';
+import hopperImg from '../img/vol2/hopper.webp';
+import leopardImg from '../img/series2/leopard.webp';
+import otterImg from '../img/vol2/otter.webp';
+import rampageImg from '../img/vol2/rampage.webp';
+import spiderImg from '../img/vol2/spider.webp';
+import topiImg from '../img/vol2/topi.webp';
+import vultureImg from '../img/vol2/vulture.webp';
+import cheetah2Img from '../img/vol2/cheetah2.webp';
 
 // Vol 3
-import businessImg from '../img/vol3/business.jpg';
-import captainImg from '../img/vol3/captain.jpg';
-import fishermanImg from '../img/vol3/fisherman.jpg';
-import gradImg from '../img/vol3/grad.jpg';
-import grandpaImg from '../img/vol3/grandpa.jpg';
-import padongImg from '../img/vol3/padong.jpg';
-import studentImg from '../img/vol3/student.jpg';
-import suitImg from '../img/vol3/suit.jpg';
-import thaiImg from '../img/vol3/thai.jpg';
-import workerImg from '../img/vol3/worker.jpg';
+import businessImg from '../img/vol3/business.webp';
+import captainImg from '../img/vol3/captain.webp';
+import fishermanImg from '../img/vol3/fisherman.webp';
+import gradImg from '../img/vol3/grad.webp';
+import grandpaImg from '../img/vol3/grandpa.webp';
+import padongImg from '../img/vol3/padong.webp';
+import studentImg from '../img/vol3/student.webp';
+import suitImg from '../img/vol3/suit.webp';
+import thaiImg from '../img/vol3/thai.webp';
+import workerImg from '../img/vol3/worker.webp';
 
 // Vol 4
-import colorImg from '../img/vol4/color.jpg';
-import danceImg from '../img/vol4/dance.jpg';
-import indianImg from '../img/vol4/indian.jpg';
-import indianmanImg from '../img/vol4/indianman.jpg';
-import malayImg from '../img/vol4/malay.jpg';
-import sifaImg from '../img/vol4/sifa.jpg';
-import speechImg from '../img/vol4/speech.jpg';
-import violinImg from '../img/vol4/violin.jpg';
-import yogaImg from '../img/vol4/yoga.jpg';
+import colorImg from '../img/vol4/color.webp';
+import danceImg from '../img/vol4/dance.webp';
+import indianImg from '../img/vol4/indian.webp';
+import indianmanImg from '../img/vol4/indianman.webp';
+import malayImg from '../img/vol4/malay.webp';
+import sifaImg from '../img/vol4/sifa.webp';
+import speechImg from '../img/vol4/speech.webp';
+import violinImg from '../img/vol4/violin.webp';
+import yogaImg from '../img/vol4/yoga.webp';
 
 // Vol 5
-import bikeImg from '../img/vol5/bike.jpg';
-import waterskiImg from '../img/vol5/waterski.jpg';
+import bikeImg from '../img/vol5/bike.webp';
+import waterskiImg from '../img/vol5/waterski.webp';
 
 export interface VolumeImage {
   id: string;
@@ -178,7 +178,7 @@ export const volumes: Volume[] = [
   }
 ];
 
-export const calligraphyWorks = [
+export const calligraphyWorks: Volume[] = [
   {
     id: "zen-mind",
     title: "The Written Spirit",

@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
-import { volumes, calligraphyWorks } from '../data/portfolio';
+import { volumes, calligraphyWorks, type Volume } from '../data/portfolio';
 
 export function Gallery() {
-  const renderGrid = (items: any[], type: 'photography' | 'calligraphy') => (
+  const renderGrid = (items: Volume[], type: 'photography' | 'calligraphy') => (
     <div className="grid grid-cols-1 md:grid-cols-12 gap-y-24 gap-x-8 lg:gap-x-16">
       {items.map((item, index) => {
         let colClasses = "";
@@ -36,7 +36,7 @@ export function Gallery() {
           }
         }
 
-        const linkPath = type === 'photography' ? `/#/volume/${item.id}` : `/#/calligraphy/${item.id}`;
+        const linkPath = type === 'photography' ? `/volume/${item.id}` : `/calligraphy/${item.id}`;
         
         let imageFitClass = 'object-contain w-full h-full';
         let transformClass = 'transition-transform duration-1000 group-hover:scale-105';
@@ -54,7 +54,8 @@ export function Gallery() {
                 src={item.coverImage} 
                 alt={item.title} 
                 className={`${imageFitClass} ${transformClass}`}
-                referrerPolicy="no-referrer"
+                loading="lazy"
+                decoding="async"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
