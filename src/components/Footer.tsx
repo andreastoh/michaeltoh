@@ -14,19 +14,19 @@ export function Footer() {
         
         <div className="flex gap-6">
           <a href="https://www.facebook.com/MichaelTohPhotography/" target="_blank" rel="noreferrer" className="text-outline-variant hover:text-primary transition-colors duration-300" aria-label="Facebook">
-            <Facebook className="w-5 h-5" />
+            <Facebook className="w-5 h-5" aria-hidden="true" />
           </a>
           <a href="https://www.instagram.com/michael_jc_toh/" target="_blank" rel="noreferrer" className="text-outline-variant hover:text-primary transition-colors duration-300" aria-label="Instagram">
-            <Instagram className="w-5 h-5" />
+            <Instagram className="w-5 h-5" aria-hidden="true" />
           </a>
           <a href="https://www.flickr.com/photos/mikejctoh/" target="_blank" rel="noreferrer" className="text-outline-variant hover:text-primary transition-colors duration-300" aria-label="Flickr">
-            <Camera className="w-5 h-5" />
+            <Camera className="w-5 h-5" aria-hidden="true" />
           </a>
           <a href="https://www.linkedin.com/in/michaeltoh/" target="_blank" rel="noreferrer" className="text-outline-variant hover:text-primary transition-colors duration-300" aria-label="LinkedIn">
-            <Linkedin className="w-5 h-5" />
+            <Linkedin className="w-5 h-5" aria-hidden="true" />
           </a>
           <a href="https://www.shutterstock.com/g/michaeltohphotography" target="_blank" rel="noreferrer" className="text-outline-variant hover:text-primary transition-colors duration-300" aria-label="Shutterstock">
-            <Image className="w-5 h-5" />
+            <Image className="w-5 h-5" aria-hidden="true" />
           </a>
         </div>
       </div>

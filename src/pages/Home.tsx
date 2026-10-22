@@ -8,25 +8,16 @@ import { Contact } from '../components/Contact';
 import { Footer } from '../components/Footer';
 
 export function Home() {
-  const location = useLocation();
+  const { hash } = useLocation();
 
+  // Scroll to a section when arriving via a link like "/#contact".
   useEffect(() => {
-    if (location.hash && location.hash !== '#/shop' && location.hash !== '#/events') {
-      const sectionId = location.hash.startsWith('#/') ? null : location.hash.substring(1);
-      
-      if (sectionId) {
-        const element = document.getElementById(sectionId);
-        if (element) {
-          // Add a small delay to ensure rendering is complete before scrolling
-          setTimeout(() => {
-            element.scrollIntoView({ behavior: 'smooth' });
-          }, 100);
-        }
-      }
-    } else if (!location.hash) {
-      window.scrollTo(0, 0);
-    }
-  }, [location]);
+    if (!hash || hash.startsWith('#/')) return;
+    const element = document.getElementById(decodeURIComponent(hash.substring(1)));
+    if (!element) return;
+    const timer = setTimeout(() => element.scrollIntoView({ behavior: 'smooth' }), 100);
+    return () => clearTimeout(timer);
+  }, [hash]);
 
   return (
     <div className="min-h-screen bg-background text-on-surface selection:bg-primary-container/30">

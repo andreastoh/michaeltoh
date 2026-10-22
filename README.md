@@ -1,20 +1,49 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# michaeltoh.sg
 
-# Run and deploy your AI Studio app
+Portfolio site for Michael Toh, a photographer and Chinese calligraphy artist based in Singapore. Built with React, Vite and Tailwind, and hosted on GitHub Pages at https://michaeltoh.sg.
 
-This contains everything you need to run your app locally.
+## Run locally
 
-View your app in AI Studio: https://ai.studio/apps/30a5a1b3-b4ba-4564-8eec-a064d52ae1b5
+Requires Node.js 20 or newer.
 
-## Run Locally
+```sh
+npm install
+npm run dev        # http://localhost:5173
+```
 
-**Prerequisites:**  Node.js
+## Build and deploy
 
+```sh
+npm run build      # builds into dist/ and pre-renders every page
+npm run preview    # check the built site locally
+npm run deploy     # builds, then publishes dist/ to the gh-pages branch
+```
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+`npm run build` does three things:
+
+1. Builds the site with Vite.
+2. Renders every page into its own HTML file (`dist/shop.html`, `dist/volume/landscapes.html`, …) so search engines see full content. GitHub Pages serves `shop.html` at `/shop`.
+3. Writes `dist/sitemap.xml` and `dist/404.html`.
+
+After deploying, Google Search Console picks up new pages from https://michaeltoh.sg/sitemap.xml.
+
+## Common edits
+
+| What | Where |
+| --- | --- |
+| Photography volumes and calligraphy series | `src/data/portfolio.ts` |
+| Events (move to "Past" automatically after `endDate`) | `src/pages/Events.tsx` |
+| Shop items | `src/pages/Shop.tsx` |
+| Page titles and Google descriptions | `src/seo.ts` |
+
+New volumes and series are added to the sitemap and pre-rendered automatically.
+
+### Adding images
+
+Shrink new photos before adding them. Large originals slow the site down a lot:
+
+```sh
+npm run optimize-images -- src/img/vol1/new-photo.jpg
+```
+
+This converts the file to `.webp` (max 2400px on the long edge) and deletes the original, so keep your master copy elsewhere. Then import the `.webp` file in the code.

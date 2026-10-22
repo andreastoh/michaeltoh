@@ -1,19 +1,18 @@
 import React, { useRef, useEffect } from 'react';
-import { ArrowUpRight } from 'lucide-react';
-import mikeImg from '../img/mike.png';
+import mikeImg from '../img/mike.webp';
 
-import brahm from '../clients/brahm.png';
-import ccologo from '../clients/ccologo.png';
-import dcs from '../clients/dcs.png';
-import diplomatic from '../clients/diplomatic.png';
-import laselle from '../clients/laselle.png';
-import luxury from '../clients/luxury.png';
-import mbms from '../clients/mbms.png';
-import nus from '../clients/nus.png';
-import nygh from '../clients/nygh.png';
-import philharmonic from '../clients/philharmonic.png';
-import qihua from '../clients/qihua.png';
-import sitfe from '../clients/sitfe.png';
+import brahm from '../clients/brahm.webp';
+import ccologo from '../clients/ccologo.webp';
+import dcs from '../clients/dcs.webp';
+import diplomatic from '../clients/diplomatic.webp';
+import laselle from '../clients/laselle.webp';
+import luxury from '../clients/luxury.webp';
+import mbms from '../clients/mbms.webp';
+import nus from '../clients/nus.webp';
+import nygh from '../clients/nygh.webp';
+import philharmonic from '../clients/philharmonic.webp';
+import qihua from '../clients/qihua.webp';
+import sitfe from '../clients/sitfe.webp';
 
 const clients = [
   { name: "Brahm", src: brahm },
@@ -31,6 +30,7 @@ const clients = [
 ];
 
 export function About() {
+  const containerRef = useRef<HTMLDivElement>(null);
   const scrollerRef = useRef<HTMLDivElement>(null);
   const position = useRef(0);
   const speed = useRef(0.5);
@@ -39,68 +39,85 @@ export function About() {
   const startX = useRef(0);
 
   useEffect(() => {
+    const container = containerRef.current;
     const scroller = scrollerRef.current;
-    if (!scroller) return;
+    if (!container || !scroller) return;
 
-    let animationId: number;
-    
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const logos = Array.from(scroller.querySelectorAll<HTMLElement>('img'));
+
+    // Measure the layout once (and on resize) instead of on every frame.
+    let containerLeft = 0;
+    let halfWidth = 0;
+    let logoCenters: number[] = [];
+    const measure = () => {
+      // The scroller is positioned, so logo offsets are measured from it.
+      containerLeft = container.getBoundingClientRect().left + scroller.offsetLeft;
+      halfWidth = scroller.scrollWidth / 2;
+      logoCenters = logos.map((logo) => logo.offsetLeft + logo.offsetWidth / 2);
+    };
+    measure();
+    window.addEventListener('resize', measure);
+    // Logos may finish loading after the first measurement.
+    logos.forEach((logo) => logo.addEventListener('load', measure));
+
+    let animationId = 0;
+    let running = false;
+
     const animate = () => {
       if (!isDragging.current) {
-        const targetSpeed = isHovered.current ? 0 : 0.5;
+        const targetSpeed = isHovered.current || reduceMotion.matches ? 0 : 0.5;
         speed.current += (targetSpeed - speed.current) * 0.05;
       }
-      
+
       position.current -= speed.current;
-
-      const halfWidth = scroller.scrollWidth / 2;
-      
-      if (position.current <= -halfWidth) {
-        position.current += halfWidth;
-      } else if (position.current > 0) {
-        position.current -= halfWidth;
+      if (halfWidth > 0) {
+        if (position.current <= -halfWidth) position.current += halfWidth;
+        else if (position.current > 0) position.current -= halfWidth;
       }
-
       scroller.style.transform = `translateX(${position.current}px)`;
 
-      // Colorize logos in the center
+      // Colorize logos near the middle of the screen.
       const centerX = window.innerWidth / 2;
-      const threshold = window.innerWidth * 0.4; // Wider threshold for smoother fade
-
-      const logoGroups = scroller.children;
-      for (let i = 0; i < logoGroups.length; i++) {
-        const group = logoGroups[i] as HTMLElement;
-        const logos = group.children;
-        for (let j = 0; j < logos.length; j++) {
-          const logo = logos[j] as HTMLElement;
-          const rect = logo.getBoundingClientRect();
-          const logoCenter = rect.left + rect.width / 2;
-          const distance = Math.abs(centerX - logoCenter);
-
-          if (distance < threshold) {
-            // Use a smoother curve (squared cosine) for a very gradual "fade in/out"
-            const normalizedDistance = distance / threshold;
-            const intensity = Math.pow(Math.cos(normalizedDistance * (Math.PI / 2)), 2);
-            
-            // Apply grayscale and opacity
-            const grayscale = 100 - (intensity * 100);
-            const opacity = 0.4 + (intensity * 0.6);
-            
-            logo.style.filter = `grayscale(${grayscale}%)`;
-            logo.style.opacity = `${opacity}`;
-            logo.style.transform = `scale(${1 + (intensity * 0.1)})`;
-          } else {
-            logo.style.filter = 'grayscale(100%)';
-            logo.style.opacity = '0.4';
-            logo.style.transform = 'scale(1)';
-          }
+      const threshold = window.innerWidth * 0.4;
+      for (let i = 0; i < logos.length; i++) {
+        const logo = logos[i];
+        const distance = Math.abs(centerX - (containerLeft + logoCenters[i] + position.current));
+        if (distance < threshold) {
+          // Squared cosine gives a gradual fade in and out.
+          const intensity = Math.pow(Math.cos((distance / threshold) * (Math.PI / 2)), 2);
+          logo.style.filter = `grayscale(${100 - intensity * 100}%)`;
+          logo.style.opacity = `${0.4 + intensity * 0.6}`;
+          logo.style.transform = `scale(${1 + intensity * 0.1})`;
+        } else {
+          logo.style.filter = 'grayscale(100%)';
+          logo.style.opacity = '0.4';
+          logo.style.transform = 'scale(1)';
         }
       }
 
       animationId = requestAnimationFrame(animate);
     };
 
-    animationId = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(animationId);
+    // Only animate while the strip is on screen.
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting && !running) {
+        running = true;
+        measure();
+        animationId = requestAnimationFrame(animate);
+      } else if (!entry.isIntersecting && running) {
+        running = false;
+        cancelAnimationFrame(animationId);
+      }
+    });
+    observer.observe(container);
+
+    return () => {
+      observer.disconnect();
+      cancelAnimationFrame(animationId);
+      window.removeEventListener('resize', measure);
+      logos.forEach((logo) => logo.removeEventListener('load', measure));
+    };
   }, []);
 
   const handlePointerDown = (e: React.PointerEvent) => {
@@ -166,7 +183,9 @@ export function About() {
           <div className="aspect-[4/5] bg-surface-container-low overflow-hidden relative group">
             <img 
               src={mikeImg} 
-              alt="Michael Toh Portrait" 
+              alt="Portrait of Michael Toh"
+              loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover grayscale transition-transform duration-1000 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent pointer-events-none"></div>
@@ -203,11 +222,13 @@ export function About() {
           <div className="max-w-[1920px] mx-auto mb-12">
              <span className="font-label text-primary uppercase tracking-[0.2em] text-xs">Selected Clients & Exhibitions</span>
           </div>
-          <div 
-            className="relative flex overflow-hidden w-full group cursor-grab touch-none"
+          <div
+            ref={containerRef}
+            className="relative flex overflow-hidden w-full group cursor-grab touch-pan-y"
             onPointerDown={handlePointerDown}
             onPointerMove={handlePointerMove}
             onPointerUp={handlePointerUp}
+            onPointerCancel={handlePointerUp}
             onPointerLeave={handleMouseLeave}
             onMouseEnter={handleMouseEnter}
           >
@@ -215,7 +236,7 @@ export function About() {
             <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-surface-container-low to-transparent z-10 pointer-events-none"></div>
             <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-surface-container-low to-transparent z-10 pointer-events-none"></div>
             
-            <div ref={scrollerRef} className="flex whitespace-nowrap items-center w-max">
+            <div ref={scrollerRef} className="relative flex whitespace-nowrap items-center w-max">
               <div className="flex items-center shrink-0">
                 {clients.map((client, idx) => (
                   <img 
@@ -223,6 +244,8 @@ export function About() {
                     src={client.src}
                     alt={client.name}
                     draggable={false}
+                    loading="lazy"
+                    decoding="async"
                     className="mx-12 md:mx-16 h-14 md:h-20 w-auto shrink-0 object-contain transition-all duration-300 select-none"
                   />
                 ))}
@@ -230,10 +253,13 @@ export function About() {
               <div className="flex items-center shrink-0">
                 {clients.map((client, idx) => (
                   <img 
-                    key={`second-${idx}`} 
+                    key={`second-${idx}`}
                     src={client.src}
-                    alt={client.name}
+                    alt=""
+                    aria-hidden="true"
                     draggable={false}
+                    loading="lazy"
+                    decoding="async"
                     className="mx-12 md:mx-16 h-14 md:h-20 w-auto shrink-0 object-contain transition-all duration-300 select-none"
                   />
                 ))}

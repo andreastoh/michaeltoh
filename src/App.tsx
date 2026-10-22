@@ -1,67 +1,66 @@
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
-
 import { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import { Home } from './pages/Home';
 import { Volume } from './pages/Volume';
 import { Events } from './pages/Events';
 import { Shop } from './pages/Shop';
+import { ThankYou } from './pages/ThankYou';
+import { NotFound } from './pages/NotFound';
+import { usePageMeta } from './usePageMeta';
+
+/** Old links used "#/shop"-style URLs. Send them to the real page instead. */
+function LegacyHashRedirect() {
+  const { hash } = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (hash.startsWith('#/')) {
+      navigate(hash.slice(1), { replace: true });
+    }
+  }, [hash, navigate]);
+
+  return null;
+}
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
 
   useEffect(() => {
-    // Scroll to top if:
-    // 1. No hash is present (standard page navigation)
-    // 2. Hash starts with #/ (our custom hash-based page routing)
-    if (!hash || hash.startsWith('#/')) {
-      // Use requestAnimationFrame to ensure the scroll happens after the DOM updates
-      requestAnimationFrame(() => {
-        window.scrollTo(0, 0);
-      });
-    }
+    // Section links like "/#contact" are handled by the Home page.
+    if (!hash) window.scrollTo(0, 0);
   }, [pathname, hash]);
 
   return null;
 }
 
-function AppContent() {
-  const location = useLocation();
-  
-  // Handle hash-based routing for Shop and Events only
-  // This prevents 404s on refresh for these standalone pages
-  if (location.hash === '#/shop') {
-    return <Shop />;
-  }
-  if (location.hash === '#/events') {
-    return <Events />;
-  }
+function PageMeta() {
+  usePageMeta();
+  return null;
+}
 
-  // Handle volume/calligraphy hash routes
-  if (location.hash.startsWith('#/volume/') || location.hash.startsWith('#/calligraphy/')) {
-    return <Volume />;
-  }
-
+export function AppRoutes() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/volume/:id" element={<Volume />} />
-      <Route path="/calligraphy/:id" element={<Volume />} />
-      {/* Keep these as fallbacks but prioritize hash-based navigation in UI */}
-      <Route path="/events" element={<Events />} />
-      <Route path="/shop" element={<Shop />} />
-    </Routes>
+    <>
+      <LegacyHashRedirect />
+      <ScrollToTop />
+      <PageMeta />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/volume/:id" element={<Volume />} />
+        <Route path="/calligraphy/:id" element={<Volume />} />
+        <Route path="/events" element={<Events />} />
+        <Route path="/shop" element={<Shop />} />
+        <Route path="/thank-you" element={<ThankYou />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </>
   );
 }
 
 export default function App() {
   return (
-    <Router>
-      <ScrollToTop />
-      <AppContent />
-    </Router>
+    <BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
   );
 }

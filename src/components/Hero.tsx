@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import bgImg from '../img/bg.png';
+import bgImg from '../img/bg.webp';
 
 export function Hero() {
   return (
@@ -7,9 +7,9 @@ export function Hero() {
       <div className="absolute inset-0 z-0 bg-background">
         <img 
           src={bgImg} 
-          alt="Cinematic landscape photograph of mountain peaks at sunrise" 
+          alt="Snow-dusted mountains rising above a frozen lake"
           className="w-full h-full object-cover opacity-40"
-          referrerPolicy="no-referrer"
+          fetchPriority="high"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/60 to-background"></div>
       </div>

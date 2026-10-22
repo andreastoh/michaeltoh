@@ -1,6 +1,23 @@
+import { useEffect, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
 import { ArrowUpRight, Facebook, Instagram, Linkedin, Camera, Image } from 'lucide-react';
+import { SITE_URL } from '../seo';
 
 export function Contact() {
+  const { search } = useLocation();
+  const subjectRef = useRef<HTMLSelectElement>(null);
+  const messageRef = useRef<HTMLTextAreaElement>(null);
+
+  // "Inquire" links on the Shop page pass the artwork name, e.g. /?artwork=Lunar%20Veil#contact
+  useEffect(() => {
+    const artwork = new URLSearchParams(search).get('artwork');
+    if (!artwork) return;
+    if (subjectRef.current) subjectRef.current.value = 'Print Acquisition';
+    if (messageRef.current && !messageRef.current.value) {
+      messageRef.current.value = `Hi Michael, I'm interested in "${artwork}". `;
+    }
+  }, [search]);
+
   return (
     <section id="contact" className="relative py-32 px-8 overflow-hidden bg-surface scroll-mt-32">
       {/* Subtle Artistic Background */}
@@ -27,24 +44,24 @@ export function Contact() {
               <p className="font-label uppercase tracking-[0.1em] text-[10px] text-outline-variant mb-4">Socials</p>
               <div className="flex flex-col gap-4">
                 <a href="https://www.facebook.com/MichaelTohPhotography/" target="_blank" rel="noreferrer" className="font-headline text-2xl text-on-surface hover:text-primary transition-all duration-300 flex items-center gap-4 group/link">
-                  <Facebook className="w-6 h-6" /> Facebook
-                  <ArrowUpRight className="w-5 h-5 opacity-0 group-hover/link:opacity-100 transition-opacity" />
+                  <Facebook className="w-6 h-6" aria-hidden="true" /> Facebook
+                  <ArrowUpRight aria-hidden="true" className="w-5 h-5 opacity-0 group-hover/link:opacity-100 transition-opacity" />
                 </a>
                 <a href="https://www.instagram.com/michael_jc_toh/" target="_blank" rel="noreferrer" className="font-headline text-2xl text-on-surface hover:text-primary transition-all duration-300 flex items-center gap-4 group/link">
-                  <Instagram className="w-6 h-6" /> Instagram
-                  <ArrowUpRight className="w-5 h-5 opacity-0 group-hover/link:opacity-100 transition-opacity" />
+                  <Instagram className="w-6 h-6" aria-hidden="true" /> Instagram
+                  <ArrowUpRight aria-hidden="true" className="w-5 h-5 opacity-0 group-hover/link:opacity-100 transition-opacity" />
                 </a>
                 <a href="https://www.flickr.com/photos/mikejctoh/" target="_blank" rel="noreferrer" className="font-headline text-2xl text-on-surface hover:text-primary transition-all duration-300 flex items-center gap-4 group/link">
-                  <Camera className="w-6 h-6" /> Flickr
-                  <ArrowUpRight className="w-5 h-5 opacity-0 group-hover/link:opacity-100 transition-opacity" />
+                  <Camera className="w-6 h-6" aria-hidden="true" /> Flickr
+                  <ArrowUpRight aria-hidden="true" className="w-5 h-5 opacity-0 group-hover/link:opacity-100 transition-opacity" />
                 </a>
                 <a href="https://www.linkedin.com/in/michaeltoh/" target="_blank" rel="noreferrer" className="font-headline text-2xl text-on-surface hover:text-primary transition-all duration-300 flex items-center gap-4 group/link">
-                  <Linkedin className="w-6 h-6" /> LinkedIn
-                  <ArrowUpRight className="w-5 h-5 opacity-0 group-hover/link:opacity-100 transition-opacity" />
+                  <Linkedin className="w-6 h-6" aria-hidden="true" /> LinkedIn
+                  <ArrowUpRight aria-hidden="true" className="w-5 h-5 opacity-0 group-hover/link:opacity-100 transition-opacity" />
                 </a>
                 <a href="https://www.shutterstock.com/g/michaeltohphotography" target="_blank" rel="noreferrer" className="font-headline text-2xl text-on-surface hover:text-primary transition-all duration-300 flex items-center gap-4 group/link">
-                  <Image className="w-6 h-6" /> Shutterstock
-                  <ArrowUpRight className="w-5 h-5 opacity-0 group-hover/link:opacity-100 transition-opacity" />
+                  <Image className="w-6 h-6" aria-hidden="true" /> Shutterstock
+                  <ArrowUpRight aria-hidden="true" className="w-5 h-5 opacity-0 group-hover/link:opacity-100 transition-opacity" />
                 </a>
               </div>
             </div>
@@ -67,23 +84,30 @@ export function Contact() {
             <input type="hidden" name="_subject" value="New Inquiry from Michael Toh Photography" />
             <input type="hidden" name="_template" value="table" />
             <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_next" value={`${SITE_URL}/thank-you`} />
+            {/* Spam trap: hidden from people, bots tend to fill it in and get rejected */}
+            <input type="text" name="_honey" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
               <div className="relative group">
-                <label className="block font-label text-[10px] uppercase tracking-[0.2em] text-on-surface-variant mb-2 group-focus-within:text-primary transition-colors">Your Name</label>
+                <label className="block font-label text-[10px] uppercase tracking-[0.2em] text-on-surface-variant mb-2 group-focus-within:text-primary transition-colors" htmlFor="contact-name">Your Name</label>
                 <input 
                   type="text" 
+                  id="contact-name"
                   name="name"
+                  autoComplete="name"
                   placeholder="John Doe" 
                   required
                   className="w-full bg-transparent border-0 border-b border-outline-variant/30 py-3 focus:ring-0 focus:border-primary text-on-surface placeholder:text-surface-container-highest transition-all font-body outline-none"
                 />
               </div>
               <div className="relative group">
-                <label className="block font-label text-[10px] uppercase tracking-[0.2em] text-on-surface-variant mb-2 group-focus-within:text-primary transition-colors">Email Address</label>
+                <label className="block font-label text-[10px] uppercase tracking-[0.2em] text-on-surface-variant mb-2 group-focus-within:text-primary transition-colors" htmlFor="contact-email">Email Address</label>
                 <input 
                   type="email" 
+                  id="contact-email"
                   name="email"
+                  autoComplete="email"
                   placeholder="john@example.com" 
                   required
                   className="w-full bg-transparent border-0 border-b border-outline-variant/30 py-3 focus:ring-0 focus:border-primary text-on-surface placeholder:text-surface-container-highest transition-all font-body outline-none"
@@ -92,8 +116,10 @@ export function Contact() {
             </div>
 
             <div className="relative group">
-              <label className="block font-label text-[10px] uppercase tracking-[0.2em] text-on-surface-variant mb-2 group-focus-within:text-primary transition-colors">Subject</label>
-              <select 
+              <label className="block font-label text-[10px] uppercase tracking-[0.2em] text-on-surface-variant mb-2 group-focus-within:text-primary transition-colors" htmlFor="contact-subject">Subject</label>
+              <select
+                id="contact-subject"
+                ref={subjectRef}
                 name="subject"
                 className="w-full bg-transparent border-0 border-b border-outline-variant/30 py-3 focus:ring-0 focus:border-primary text-on-surface transition-all font-body outline-none appearance-none"
               >
@@ -104,8 +130,10 @@ export function Contact() {
             </div>
 
             <div className="relative group">
-              <label className="block font-label text-[10px] uppercase tracking-[0.2em] text-on-surface-variant mb-2 group-focus-within:text-primary transition-colors">Message</label>
-              <textarea 
+              <label className="block font-label text-[10px] uppercase tracking-[0.2em] text-on-surface-variant mb-2 group-focus-within:text-primary transition-colors" htmlFor="contact-message">Message</label>
+              <textarea
+                id="contact-message"
+                ref={messageRef}
                 name="message"
                 rows={4} 
                 placeholder="Tell me about your project..." 
