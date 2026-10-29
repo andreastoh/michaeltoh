@@ -23,7 +23,7 @@ npm run deploy     # builds, then publishes dist/ to the gh-pages branch
 
 1. Builds the site with Vite.
 2. Renders every page into its own HTML file (`dist/shop.html`, `dist/volume/landscapes.html`, …) so search engines see full content. GitHub Pages serves `shop.html` at `/shop`.
-3. Writes `dist/sitemap.xml` and `dist/404.html`.
+3. Writes `dist/sitemap.xml` (including every gallery photo, for Google Images) and `dist/404.html`.
 
 After deploying, Google Search Console picks up new pages from https://michaeltoh.sg/sitemap.xml.
 
@@ -32,11 +32,11 @@ After deploying, Google Search Console picks up new pages from https://michaelto
 | What | Where |
 | --- | --- |
 | Photography volumes and calligraphy series | `src/data/portfolio.ts` |
-| Events (move to "Past" automatically after `endDate`) | `src/pages/Events.tsx` |
-| Shop items | `src/pages/Shop.tsx` |
-| Page titles and Google descriptions | `src/seo.ts` |
+| Events (move to "Past" automatically after `endDate`) | `src/data/events.ts` |
+| Shop items | `src/data/shop.ts` |
+| Page titles, Google descriptions and structured data | `src/seo.ts` |
 
-New volumes and series are added to the sitemap and pre-rendered automatically.
+New volumes, series, events and shop items are added to the sitemap and Google's structured data automatically. Give every photo a descriptive `alt` (what's in it and where), since that is what Google Images reads.
 
 ### Adding images
 

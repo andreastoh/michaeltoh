@@ -15,10 +15,10 @@ export function Hero() {
       </div>
       
       <div className="relative z-10 text-center px-4 max-w-5xl mt-20">
-        <span className="font-label uppercase tracking-[0.3em] text-primary text-xs mb-6 block">
-          Photographer & Calligraphy Artist
-        </span>
         <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl text-on-surface mb-8 leading-tight">
+          <span className="font-label not-italic uppercase tracking-[0.3em] text-primary text-xs leading-normal mb-6 block">
+            Michael Toh · Photographer & Calligraphy Artist, Singapore
+          </span>{' '}
           Mastering <span className="italic text-primary">Light</span> & <span className="italic text-primary">Ink</span>
         </h1>
         

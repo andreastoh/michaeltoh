@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { getPageMeta, OG_IMAGE, SITE_URL } from './seo';
+import { getPageMeta, OG_IMAGE, SITE_URL, pageJsonLd } from './seo';
 
 function setMeta(selector: string, attr: 'name' | 'property', key: string, content: string) {
   let el = document.head.querySelector<HTMLMetaElement>(selector);
@@ -32,5 +32,8 @@ export function usePageMeta() {
 
     const canonical = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     if (canonical && !meta.noindex) canonical.href = url;
+
+    const ld = document.head.querySelector<HTMLScriptElement>('script[type="application/ld+json"]');
+    if (ld) ld.textContent = pageJsonLd(meta);
   }, [pathname]);
 }

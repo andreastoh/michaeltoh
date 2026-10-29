@@ -42,18 +42,22 @@ for (const meta of pages) {
 await fs.writeFile(path.join(dist, '404.html'), buildPage(NOT_FOUND, '/404'));
 console.log('prerendered 404 page → dist/404.html');
 
-const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Singapore' }).format(new Date());
-const urls = pages
-  .filter((p) => !p.noindex)
-  .map(
-    (p) =>
-      `  <url>\n    <loc>${SITE_URL}${p.path}</loc>\n    <lastmod>${today}</lastmod>\n  </url>`
-  )
+// Lists every indexable page, plus the images on it so Google Images can find
+// photos that only appear after a visitor clicks through a gallery.
+const xmlEscape = (v) => v.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+const indexable = pages.filter((p) => !p.noindex);
+const urls = indexable
+  .map((p) => {
+    const images = [...new Set(p.images ?? [])]
+      .map((src) => `    <image:image>\n      <image:loc>${xmlEscape(src)}</image:loc>\n    </image:image>`)
+      .join('\n');
+    return `  <url>\n    <loc>${SITE_URL}${p.path}</loc>${images ? `\n${images}` : ''}\n  </url>`;
+  })
   .join('\n');
 await fs.writeFile(
   path.join(dist, 'sitemap.xml'),
-  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`
+  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n${urls}\n</urlset>\n`
 );
-console.log(`wrote dist/sitemap.xml (${pages.filter((p) => !p.noindex).length} pages)`);
+console.log(`wrote dist/sitemap.xml (${indexable.length} pages)`);
 
 await fs.rm(ssrDir, { recursive: true, force: true });

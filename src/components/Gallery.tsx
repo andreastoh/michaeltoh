@@ -52,7 +52,7 @@ export function Gallery() {
             <div className={`relative ${aspectClass} ${containerMaxHeight} overflow-hidden ${bgClass} mb-8 flex items-center justify-center`}>
               <img 
                 src={item.coverImage} 
-                alt={item.title} 
+                alt={item.coverAlt} 
                 className={`${imageFitClass} ${transformClass}`}
                 loading="lazy"
                 decoding="async"
