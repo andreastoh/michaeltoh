@@ -1,43 +1,234 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://michaeltoh.sg/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/camel-D00JzCCk.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/cheetah-DwAPTi1w.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/leader-Bl6QNqKJ.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/orchestra-Dw38ksba.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/f1--uC7J1L0.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/scrollwall-yl2cgpMd.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/bird-BVtWRd0Y.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://michaeltoh.sg/events</loc>
-    <lastmod>2026-10-22</lastmod>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/ehtiopia-u1v8CXh3.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://michaeltoh.sg/shop</loc>
-    <lastmod>2026-10-22</lastmod>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/moon-DP4l76kp.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/calli1-4REPZJnZ.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/calli2-o6yIb-Re.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://michaeltoh.sg/volume/landscapes</loc>
-    <lastmod>2026-10-22</lastmod>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/camel-D00JzCCk.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/boat-DLTb3bQp.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/bromo-CWNDVpx4.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/farm-BpfFR1up.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/goldengate-D8lsZfuD.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/hk-BMKPNhjo.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/japan-DnV-5gcl.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/milky-wIQe5WP8.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/palm-Dk8Ktnap.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/seattle-BUcIJXJa.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/temple-B_DSK8nW.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://michaeltoh.sg/volume/untamed-spirits</loc>
-    <lastmod>2026-10-22</lastmod>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/cheetah-DwAPTi1w.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/crane-B0eJAi2u.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/flycatcher-hFMeUIka.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/hopper-D3UTY2YB.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/leopard-DbE68Sb2.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/otter-BLQnSjku.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/rampage-BqMjRNOn.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/spider-CEBbQJGL.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/topi-CrHu8DRr.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/vulture-D_SaY6QY.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/cheetah2-Djmdrbjs.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://michaeltoh.sg/volume/human-condition</loc>
-    <lastmod>2026-10-22</lastmod>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/leader-Bl6QNqKJ.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/business-BTBzetWn.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/captain-BWGkwlS5.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/fisherman-BzUDu_S1.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/grad-Dla5Lbo4.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/grandpa-Bg0bRYN3.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/padong-w2-7FiTL.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/student-CXJ8Yom_.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/suit-DGEHuPxP.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/thai-BPhDMbMH.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/worker-h0pWM-iP.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://michaeltoh.sg/volume/collective-memory</loc>
-    <lastmod>2026-10-22</lastmod>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/orchestra-Dw38ksba.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/color-Dh-YCEKZ.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/dance-CgAQNvT9.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/indian-DepqkB2b.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/indianman-C7bsIPT7.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/malay-dqH9Jc56.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/sifa-BRllJXIL.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/speech-DIlnp7vL.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/violin-C6nQGWzB.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/yoga-DsB4PK_G.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://michaeltoh.sg/volume/kinetic-energy</loc>
-    <lastmod>2026-10-22</lastmod>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/f1--uC7J1L0.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/airshow-WxEGQq8z.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/frisbee-CxcdrqUc.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/sprint-Mfrfquk7.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/bike-h4Y4ugp3.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/waterski-Bu1ymgAO.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://michaeltoh.sg/calligraphy/zen-mind</loc>
-    <lastmod>2026-10-22</lastmod>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/scrollwall-yl2cgpMd.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/poem-D4ZG9Wg5.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/ink-Cg_FsCm8.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/circle-DAPPaD7E.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://michaeltoh.sg/calligraphy/rhythm-of-nature</loc>
-    <lastmod>2026-10-22</lastmod>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/bird-BVtWRd0Y.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/crane-xNbmGW22.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://michaeltoh.sg/assets/lady-DVsAwfEk.webp</image:loc>
+    </image:image>
   </url>
 </urlset>
