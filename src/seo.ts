@@ -27,6 +27,8 @@ const abs = (url: string) => (url.startsWith('http') ? url : `${SITE_URL}${url}`
 
 const PERSON_ID = `${SITE_URL}/#person`;
 const WEBSITE_ID = `${SITE_URL}/#website`;
+/** Where Google Images sends people who want to use a photo: the contact form. */
+const LICENSE_URL = `${SITE_URL}/#contact`;
 
 const PERSON: JsonLd = {
   '@type': 'Person',
@@ -214,6 +216,8 @@ function galleryPage(v: Volume, section: 'volume' | 'calligraphy'): PageMeta {
             creator: { '@type': 'Person', name: 'Michael Toh', '@id': PERSON_ID },
             creditText: 'Michael Toh',
             copyrightNotice: `© Michael Toh`,
+            license: LICENSE_URL,
+            acquireLicensePage: LICENSE_URL,
           })
         ),
       },
