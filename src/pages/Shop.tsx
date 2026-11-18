@@ -16,6 +16,9 @@ export function Shop() {
           <p className="font-body text-lg text-on-surface-variant/80 leading-relaxed">
             Selected works available as limited edition archival pigment prints and monographs.<br/>Contact Michael for more details.
           </p>
+          <p className="font-label text-xs tracking-widest uppercase text-outline-variant mt-6">
+            Free delivery within Singapore · All sales are final
+          </p>
         </header>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
