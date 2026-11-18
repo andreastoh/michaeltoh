@@ -141,6 +141,20 @@ const EVENTS: PageMeta = {
   ],
 };
 
+/** Free delivery within Singapore only. Keep in sync with the note on the Shop page. */
+const SHIPPING: JsonLd = {
+  '@type': 'OfferShippingDetails',
+  shippingRate: { '@type': 'MonetaryAmount', value: 0, currency: 'SGD' },
+  shippingDestination: { '@type': 'DefinedRegion', addressCountry: 'SG' },
+};
+
+/** All sales are final. Keep in sync with the note on the Shop page. */
+const RETURN_POLICY: JsonLd = {
+  '@type': 'MerchantReturnPolicy',
+  applicableCountry: 'SG',
+  returnPolicyCategory: 'https://schema.org/MerchantReturnNotPermitted',
+};
+
 const SHOP: PageMeta = {
   path: '/shop',
   title: 'Fine Art Prints & Chinese Calligraphy for Sale | Michael Toh',
@@ -163,6 +177,8 @@ const SHOP: PageMeta = {
         availability: 'https://schema.org/InStock',
         url: `${SITE_URL}/shop`,
         seller: { '@id': PERSON_ID },
+        shippingDetails: SHIPPING,
+        hasMerchantReturnPolicy: RETURN_POLICY,
       },
     })),
     breadcrumbs([
